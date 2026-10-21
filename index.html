@@ -76,7 +76,7 @@
                 <!-- Desktop Search Bar -->
                 <div class="hidden md:flex flex-1 max-w-md mx-8 relative">
                     <i class="fa-solid fa-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-slate-400"></i>
-                    <input type="text" id="search-input" oninput="handleSearch(this.value)" placeholder="Search item e.g. Dominus, Valkyrie, Chroma, Huge Cat..." 
+                    <input type="text" id="search-input" oninput="handleSearch(this.value)" placeholder="Search item e.g. Dominus, Valkyrie, Fedora..." 
                         class="w-full pl-11 pr-4 py-2.5 bg-slate-100 border border-transparent rounded-2xl text-sm focus:bg-white focus:border-roblox-blue focus:outline-none transition-all shadow-inner">
                 </div>
 
@@ -123,13 +123,13 @@
             </div>
             <div class="relative z-10 max-w-2xl space-y-4">
                 <span class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/20 backdrop-blur-md text-xs font-bold tracking-wide uppercase text-white border border-white/20">
-                    <i class="fa-solid fa-fire text-amber-300"></i> New Featured Marketplace Arrivals
+                    <i class="fa-solid fa-fire text-amber-300"></i> Legendary Limiteds Collection
                 </span>
                 <h1 class="text-3xl sm:text-5xl font-black tracking-tight leading-tight">
                     The Ultimate Roblox Rare Items Marketplace
                 </h1>
                 <p class="text-white/90 text-sm sm:text-base font-medium">
-                    Find Limiteds, MM2 Weapons, Adopt Me Legendary Pets, Pet Simulator Huge Pets, and Grand Piece Online Fruit at competitive prices with instant delivery.
+                    Explore exclusive Dominus series, Sparkle Time Fedoras, mythic crowns, historical gear, and rare trading collectibles.
                 </p>
                 <div class="flex flex-wrap gap-3 pt-2">
                     <a href="#catalog" class="px-6 py-3 bg-white text-roblox-blue font-extrabold rounded-2xl shadow-md hover:bg-slate-100 transition-all text-sm">
@@ -150,7 +150,7 @@
                     <p class="text-sm text-slate-500 font-medium">Filter by category or rarity to find what you need</p>
                 </div>
 
-                <!-- Category Filters (Clean Text & Icons, No Emojis) -->
+                <!-- Category Filters -->
                 <div class="flex flex-wrap gap-2" id="category-filters">
                     <button onclick="setCategory('all')" class="category-btn px-4 py-2 rounded-xl text-xs font-bold transition-all bg-roblox-blue text-white shadow-md shadow-roblox-blue/20" data-cat="all">
                         <i class="fa-solid fa-border-all mr-1.5"></i> All Items
@@ -316,94 +316,402 @@
 
     <!-- Application JavaScript Logic -->
     <script>
-        // Mock Catalog Database of Rare Roblox Items
+        // Database of 34+ Rare Roblox Items with Official CDN Thumbnails
         const products = [
             {
                 id: 1,
-                name: "Dominus Astra",
+                name: "Dominus Empyreus",
                 category: "Limiteds",
-                rarity: "Legendary",
-                price: 149.99,
-                value: "125,000 R$",
-                stock: 2,
-                image: "https://placehold.co/400x300/0084FF/ffffff?text=Dominus+Astra",
-                badgeColor: "bg-amber-100 text-amber-800 border-amber-200"
+                rarity: "Mythic",
+                price: 299.99,
+                value: "135,000,000 R$",
+                stock: 1,
+                robloxId: "21070012",
+                badgeColor: "bg-purple-100 text-purple-800 border-purple-200"
             },
             {
                 id: 2,
-                name: "Valkyrie Helm",
+                name: "Dominus Infernus",
                 category: "Limiteds",
                 rarity: "Mythic",
-                price: 89.99,
-                value: "65,000 R$",
-                stock: 4,
-                image: "https://placehold.co/400x300/0052CC/ffffff?text=Valkyrie+Helm",
+                price: 249.99,
+                value: "70,000,000 R$",
+                stock: 2,
+                robloxId: "31101391",
                 badgeColor: "bg-purple-100 text-purple-800 border-purple-200"
             },
             {
                 id: 3,
+                name: "Dominus Frigidus",
+                category: "Limiteds",
+                rarity: "Mythic",
+                price: 229.99,
+                value: "90,000,000 R$",
+                stock: 2,
+                robloxId: "48545806",
+                badgeColor: "bg-purple-100 text-purple-800 border-purple-200"
+            },
+            {
+                id: 4,
+                name: "Dominus Astra",
+                category: "Limiteds",
+                rarity: "Legendary",
+                price: 149.99,
+                value: "60,000,000 R$",
+                stock: 3,
+                robloxId: "162067148",
+                badgeColor: "bg-amber-100 text-amber-800 border-amber-200"
+            },
+            {
+                id: 5,
+                name: "Dominus Pittacium",
+                category: "Limiteds",
+                rarity: "Legendary",
+                price: 129.99,
+                value: "45,000,000 R$",
+                stock: 3,
+                robloxId: "15324560",
+                badgeColor: "bg-amber-100 text-amber-800 border-amber-200"
+            },
+            {
+                id: 6,
+                name: "Dominus Formidulosus",
+                category: "Limiteds",
+                rarity: "Mythic",
+                price: 179.99,
+                value: "55,000,000 R$",
+                stock: 2,
+                robloxId: "15324561",
+                badgeColor: "bg-purple-100 text-purple-800 border-purple-200"
+            },
+            {
+                id: 7,
+                name: "White Sparkle Time Fedora",
+                category: "Limiteds",
+                rarity: "Legendary",
+                price: 99.99,
+                value: "5,300,000 R$",
+                stock: 5,
+                robloxId: "1016143686",
+                badgeColor: "bg-amber-100 text-amber-800 border-amber-200"
+            },
+            {
+                id: 8,
+                name: "Orange Sparkle Time Fedora",
+                category: "Limiteds",
+                rarity: "Legendary",
+                price: 79.99,
+                value: "9,500,000 R$",
+                stock: 4,
+                robloxId: "215751161",
+                badgeColor: "bg-amber-100 text-amber-800 border-amber-200"
+            },
+            {
+                id: 9,
+                name: "Red Sparkle Time Fedora",
+                category: "Limiteds",
+                rarity: "Legendary",
+                price: 79.99,
+                value: "8,000,000 R$",
+                stock: 4,
+                robloxId: "18991444",
+                badgeColor: "bg-amber-100 text-amber-800 border-amber-200"
+            },
+            {
+                id: 10,
+                name: "Purple Sparkle Time Fedora",
+                category: "Limiteds",
+                rarity: "Legendary",
+                price: 84.99,
+                value: "8,500,000 R$",
+                stock: 3,
+                robloxId: "11094042",
+                badgeColor: "bg-amber-100 text-amber-800 border-amber-200"
+            },
+            {
+                id: 11,
+                name: "Classic Federation Fedora",
+                category: "Limiteds",
+                rarity: "Mythic",
+                price: 59.99,
+                value: "3,500,000 R$",
+                stock: 6,
+                robloxId: "1365767",
+                badgeColor: "bg-purple-100 text-purple-800 border-purple-200"
+            },
+            {
+                id: 12,
+                name: "Fancy St. Patrick's Fedora",
+                category: "Limiteds",
+                rarity: "Legendary",
+                price: 49.99,
+                value: "2,500,000 R$",
+                stock: 8,
+                robloxId: "19163013",
+                badgeColor: "bg-amber-100 text-amber-800 border-amber-200"
+            },
+            {
+                id: 13,
+                name: "Domino Crown",
+                category: "Limiteds",
+                rarity: "Mythic",
+                price: 199.99,
+                value: "40,000,000 R$",
+                stock: 2,
+                robloxId: "1157121",
+                badgeColor: "bg-purple-100 text-purple-800 border-purple-200"
+            },
+            {
+                id: 14,
+                name: "The Wanwood Crown",
+                category: "Limiteds",
+                rarity: "Legendary",
+                price: 69.99,
+                value: "15,000,000 R$",
+                stock: 5,
+                robloxId: "31101402",
+                badgeColor: "bg-amber-100 text-amber-800 border-amber-200"
+            },
+            {
+                id: 15,
+                name: "Valkyrie Helm",
+                category: "Limiteds",
+                rarity: "Godly",
+                price: 89.99,
+                value: "280,000 R$",
+                stock: 6,
+                robloxId: "1365767",
+                badgeColor: "bg-red-100 text-red-800 border-red-200"
+            },
+            {
+                id: 16,
+                name: "Blackvalk",
+                category: "Limiteds",
+                rarity: "Godly",
+                price: 119.99,
+                value: "500,000 R$",
+                stock: 4,
+                robloxId: "440268840",
+                badgeColor: "bg-red-100 text-red-800 border-red-200"
+            },
+            {
+                id: 17,
+                name: "Violet Valk",
+                category: "Limiteds",
+                rarity: "Godly",
+                price: 139.99,
+                value: "750,000 R$",
+                stock: 3,
+                robloxId: "4847425114",
+                badgeColor: "bg-red-100 text-red-800 border-red-200"
+            },
+            {
+                id: 18,
+                name: "Lord of the Federation",
+                category: "Limiteds",
+                rarity: "Mythic",
+                price: 189.99,
+                value: "35,000,000 R$",
+                stock: 2,
+                robloxId: "26019747",
+                badgeColor: "bg-purple-100 text-purple-800 border-purple-200"
+            },
+            {
+                id: 19,
+                name: "Lady of the Federation",
+                category: "Limiteds",
+                rarity: "Mythic",
+                price: 189.99,
+                value: "32,000,000 R$",
+                stock: 2,
+                robloxId: "26019754",
+                badgeColor: "bg-purple-100 text-purple-800 border-purple-200"
+            },
+            {
+                id: 20,
+                name: "New Years Crown 2012",
+                category: "Limiteds",
+                rarity: "Legendary",
+                price: 74.99,
+                value: "12,000,000 R$",
+                stock: 4,
+                robloxId: "69970972",
+                badgeColor: "bg-amber-100 text-amber-800 border-amber-200"
+            },
+            {
+                id: 21,
+                name: "The Kleos Aphthiton",
+                category: "Limiteds",
+                rarity: "Mythic",
+                price: 159.99,
+                value: "25,000,000 R$",
+                stock: 3,
+                robloxId: "1563228",
+                badgeColor: "bg-purple-100 text-purple-800 border-purple-200"
+            },
+            {
+                id: 22,
+                name: "Living Art: Starry Night",
+                category: "Limiteds",
+                rarity: "Legendary",
+                price: 89.99,
+                value: "10,000,000 R$",
+                stock: 4,
+                robloxId: "142147326",
+                badgeColor: "bg-amber-100 text-amber-800 border-amber-200"
+            },
+            {
+                id: 23,
+                name: "Eccentric Shop Teacher",
+                category: "Limiteds",
+                rarity: "Legendary",
+                price: 69.99,
+                value: "8,000,000 R$",
+                stock: 5,
+                robloxId: "142147330",
+                badgeColor: "bg-amber-100 text-amber-800 border-amber-200"
+            },
+            {
+                id: 24,
+                name: "The Golden Robloxian",
+                category: "Limiteds",
+                rarity: "Godly",
+                price: 99.99,
+                value: "18,000,000 R$",
+                stock: 4,
+                robloxId: "142147335",
+                badgeColor: "bg-red-100 text-red-800 border-red-200"
+            },
+            {
+                id: 25,
+                name: "Eerie Pumpkin Head",
+                category: "Limiteds",
+                rarity: "Legendary",
+                price: 49.99,
+                value: "5,000,000 R$",
+                stock: 7,
+                robloxId: "1563234",
+                badgeColor: "bg-amber-100 text-amber-800 border-amber-200"
+            },
+            {
+                id: 26,
+                name: "Antenna Antlers",
+                category: "Limiteds",
+                rarity: "Legendary",
+                price: 54.99,
+                value: "6,000,000 R$",
+                stock: 6,
+                robloxId: "1563240",
+                badgeColor: "bg-amber-100 text-amber-800 border-amber-200"
+            },
+            {
+                id: 27,
+                name: "Clockwork's Headphones",
+                category: "Limiteds",
+                rarity: "Godly",
+                price: 69.99,
+                value: "1,200,000 R$",
+                stock: 8,
+                robloxId: "11494943",
+                badgeColor: "bg-red-100 text-red-800 border-red-200"
+            },
+            {
+                id: 28,
+                name: "Clockwork's Shades",
+                category: "Limiteds",
+                rarity: "Legendary",
+                price: 39.99,
+                value: "450,000 R$",
+                stock: 10,
+                robloxId: "11494951",
+                badgeColor: "bg-amber-100 text-amber-800 border-amber-200"
+            },
+            {
+                id: 29,
+                name: "Red Bandana of SQL Injection",
+                category: "Limiteds",
+                rarity: "Legendary",
+                price: 44.99,
+                value: "800,000 R$",
+                stock: 7,
+                robloxId: "11494958",
+                badgeColor: "bg-amber-100 text-amber-800 border-amber-200"
+            },
+            {
+                id: 30,
+                name: "Darkheart",
+                category: "Limiteds",
+                rarity: "Godly",
+                price: 29.99,
+                value: "250,000 R$",
+                stock: 12,
+                robloxId: "11494965",
+                badgeColor: "bg-red-100 text-red-800 border-red-200"
+            },
+            {
+                id: 31,
+                name: "Super Super Happy Face",
+                category: "Limiteds",
+                rarity: "Godly",
+                price: 99.99,
+                value: "300,000 R$",
+                stock: 15,
+                robloxId: "494297103",
+                badgeColor: "bg-red-100 text-red-800 border-red-200"
+            },
+            {
+                id: 32,
+                name: "Headless Horseman",
+                category: "Limiteds",
+                rarity: "Mythic",
+                price: 79.99,
+                value: "31,000 R$",
+                stock: 20,
+                robloxId: "139577715",
+                badgeColor: "bg-purple-100 text-purple-800 border-purple-200"
+            },
+            {
+                id: 33,
+                name: "Telamon Hair",
+                category: "Limiteds",
+                rarity: "Legendary",
+                price: 34.99,
+                value: "150,000 R$",
+                stock: 10,
+                robloxId: "1365773",
+                badgeColor: "bg-amber-100 text-amber-800 border-amber-200"
+            },
+            {
+                id: 34,
+                name: "Gold Spartan",
+                category: "Limiteds",
+                rarity: "Godly",
+                price: 109.99,
+                value: "22,000,000 R$",
+                stock: 3,
+                robloxId: "1365779",
+                badgeColor: "bg-red-100 text-red-800 border-red-200"
+            },
+            {
+                id: 35,
                 name: "Chroma Lightbringer",
                 category: "MM2",
                 rarity: "Chromatic",
                 price: 19.99,
                 value: "18,000 R$",
                 stock: 12,
-                image: "https://placehold.co/400x300/ec4899/ffffff?text=Chroma+Lightbringer",
+                robloxId: "508316824",
                 badgeColor: "bg-pink-100 text-pink-800 border-pink-200"
             },
             {
-                id: 4,
+                id: 36,
                 name: "Frost Dragon",
                 category: "AdoptMe",
                 rarity: "Legendary",
                 price: 24.99,
                 value: "20,000 R$",
                 stock: 7,
-                image: "https://placehold.co/400x300/38bdf8/ffffff?text=Frost+Dragon",
-                badgeColor: "bg-amber-100 text-amber-800 border-amber-200"
-            },
-            {
-                id: 5,
-                name: "Huge Cat",
-                category: "PetSim",
-                rarity: "Godly",
-                price: 49.99,
-                value: "45,000 R$",
-                stock: 5,
-                image: "https://placehold.co/400x300/ef4444/ffffff?text=Huge+Cat",
-                badgeColor: "bg-red-100 text-red-800 border-red-200"
-            },
-            {
-                id: 6,
-                name: "All-Sight Fruit (Mochi)",
-                category: "GPO",
-                rarity: "Mythic",
-                price: 39.99,
-                value: "35,000 R$",
-                stock: 6,
-                image: "https://placehold.co/400x300/a855f7/ffffff?text=Mochi+Fruit",
-                badgeColor: "bg-purple-100 text-purple-800 border-purple-200"
-            },
-            {
-                id: 7,
-                name: "Corrupt Knife",
-                category: "MM2",
-                rarity: "Godly",
-                price: 34.99,
-                value: "28,000 R$",
-                stock: 3,
-                image: "https://placehold.co/400x300/dc2626/ffffff?text=Corrupt+Knife",
-                badgeColor: "bg-red-100 text-red-800 border-red-200"
-            },
-            {
-                id: 8,
-                name: "Shadow Dragon",
-                category: "AdoptMe",
-                rarity: "Legendary",
-                price: 34.99,
-                value: "30,000 R$",
-                stock: 3,
-                image: "https://placehold.co/400x300/1e293b/ffffff?text=Shadow+Dragon",
+                robloxId: "508316830",
                 badgeColor: "bg-amber-100 text-amber-800 border-amber-200"
             }
         ];
@@ -463,7 +771,7 @@
                 <div class="bg-white rounded-3xl border border-slate-200 overflow-hidden roblox-card-hover flex flex-col justify-between">
                     <div>
                         <div class="relative bg-slate-100 aspect-[4/3] overflow-hidden">
-                            <img src="${item.image}" alt="${item.name}" class="w-full h-full object-cover transform hover:scale-105 transition-transform duration-300" onerror="this.src='https://placehold.co/400x300/0084FF/ffffff?text=Roblox+Item'">
+                            <img src="https://www.roblox.com/asset-thumbnail/image?assetId=${item.robloxId}&width=420&height=420&format=png" alt="${item.name}" class="w-full h-full object-cover transform hover:scale-105 transition-transform duration-300" onerror="this.src='https://placehold.co/400x300/0084FF/ffffff?text=Roblox+Item'">
                             <span class="absolute top-3 left-3 px-3 py-1 rounded-xl text-[10px] font-black uppercase tracking-wider border backdrop-blur-md bg-white/90 ${item.badgeColor}">
                                 ${item.rarity}
                             </span>
@@ -570,45 +878,45 @@
             const totalEl = document.getElementById('cart-total');
 
             const totalCount = cart.reduce((sum, item) => sum + item.quantity, 0);
-            
+            const subtotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+
             if (totalCount > 0) {
-                badge.innerText = totalCount;
+                badge.textContent = totalCount;
                 badge.classList.remove('hidden');
-                countBadge.innerText = totalCount;
+                countBadge.textContent = totalCount;
             } else {
                 badge.classList.add('hidden');
-                countBadge.innerText = '0';
+                countBadge.textContent = '0';
             }
+
+            subtotalEl.textContent = `$${subtotal.toFixed(2)}`;
+            totalEl.textContent = `$${subtotal.toFixed(2)}`;
 
             if (cart.length === 0) {
                 container.innerHTML = `
-                    <div class="flex flex-col items-center justify-center h-full text-center py-12 space-y-3">
-                        <div class="w-14 h-14 bg-slate-100 text-slate-300 rounded-full flex items-center justify-center text-xl">
-                            <i class="fa-solid fa-shopping-bag"></i>
-                        </div>
-                        <p class="text-sm font-bold text-slate-700">Your cart is empty</p>
-                        <p class="text-xs text-slate-400">Add rare items to get started.</p>
+                    <div class="text-center py-12 text-slate-400 space-y-3">
+                        <i class="fa-solid fa-shopping-bag text-4xl"></i>
+                        <p class="text-sm font-semibold">Your cart is empty</p>
                     </div>
                 `;
-            } else {
-                container.innerHTML = cart.map(item => `
-                    <div class="flex items-center gap-4 bg-slate-50 p-4 rounded-2xl border border-slate-200">
-                        <img src="${item.image}" alt="${item.name}" class="w-16 h-16 rounded-xl object-cover bg-white border border-slate-200">
-                        <div class="flex-1 min-w-0">
-                            <h4 class="font-extrabold text-sm text-slate-900 truncate">${item.name}</h4>
-                            <p class="text-xs text-roblox-blue font-bold">$${item.price.toFixed(2)}</p>
-                            <span class="text-[10px] text-slate-400 font-semibold">Qty: ${item.quantity}</span>
-                        </div>
-                        <button onclick="removeFromCart(${item.id})" class="p-2 text-slate-400 hover:text-red-500 rounded-xl hover:bg-white transition-colors">
-                            <i class="fa-solid fa-trash-can text-sm"></i>
-                        </button>
-                    </div>
-                `).join('');
+                return;
             }
 
-            const subtotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
-            subtotalEl.innerText = '$' + subtotal.toFixed(2);
-            totalEl.innerText = '$' + subtotal.toFixed(2);
+            container.innerHTML = cart.map(item => `
+                <div class="flex items-center justify-between bg-slate-50 p-3 rounded-2xl border border-slate-200">
+                    <div class="flex items-center gap-3">
+                        <img src="https://www.roblox.com/asset-thumbnail/image?assetId=${item.robloxId}&width=150&height=150&format=png" class="w-12 h-12 object-cover rounded-xl bg-white border border-slate-200">
+                        <div>
+                            <h4 class="font-extrabold text-sm text-slate-900 line-clamp-1">${item.name}</h4>
+                            <span class="text-xs text-slate-500 font-semibold">$${item.price.toFixed(2)} x ${item.quantity}</span>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <button onclick="addToCart(${item.id})" class="w-7 h-7 bg-white border border-slate-200 text-slate-700 rounded-lg text-xs font-bold hover:bg-slate-100 flex items-center justify-center">+</button>
+                        <button onclick="removeFromCart(${item.id})" class="w-7 h-7 bg-red-50 text-red-600 rounded-lg text-xs hover:bg-red-100 flex items-center justify-center"><i class="fa-solid fa-trash-can"></i></button>
+                    </div>
+                </div>
+            `).join('');
         }
 
         function toggleCartDrawer(open) {
@@ -620,12 +928,12 @@
             }
         }
 
-        function openModal(modalId) {
-            document.getElementById(modalId).classList.remove('hidden');
+        function openModal(id) {
+            document.getElementById(id).classList.remove('hidden');
         }
 
-        function closeModal(modalId) {
-            document.getElementById(modalId).classList.add('hidden');
+        function closeModal(id) {
+            document.getElementById(id).classList.add('hidden');
         }
 
         function proceedToCheckout() {
